@@ -12,7 +12,7 @@ interface AuthContextInterface {
 const defaultValue = {
     accessToken: null,
     setAccessToken: () => { },
-    isLogedIn: false,
+    isLogedIn: true,
     setIsLogedIn: () => { },
     userName: null,
     setUserName: () => { },

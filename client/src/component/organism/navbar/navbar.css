@@ -1,0 +1,64 @@
+.navbar-wrap {
+    width: 100%;
+    background: #090a03;
+    display: flex;
+    padding: 15px 50px;
+    color: #b6c2cf;
+    justify-content: space-between;
+    align-items: center;
+    height: 11%;
+}
+
+.navbar-heading {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.nav-auth-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-user-name-wrap {
+    margin: 0px 30px;
+}
+
+.nav-welcome-p span {
+    color: #a5be14;
+}
+
+.user-logo-wrap {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #97a7b8;
+    border: none;
+    border-radius: 50%;
+}
+
+.user-logo-wrap p {
+    color: hsl(252, 64%, 41%);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.nav-btn {
+    margin: 0px 10px;
+    background-color: #b6c2cf;
+    color: #090a03;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transform: 0.4s;
+}
+
+.nav-btn:hover {
+    background-color: #97a7b8;
+
+}
