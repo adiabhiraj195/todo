@@ -1,0 +1,20 @@
+.input-filed-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+.input-field{
+    padding: 4px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Outfit;
+    margin: 6px 0px;
+    outline: none;
+    border: none;
+    background: #181b06;
+    border-radius: 4px;
+    color: #b6c2cf;
+}
+.input-label{
+    color: #b6c2cf;
+}
