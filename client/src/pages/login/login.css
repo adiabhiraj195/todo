@@ -1,0 +1,21 @@
+.register-link-container{
+    text-align: end;
+    margin: 8px 20px;
+}
+.login-btn {
+    padding: 6px 12px;
+    font-size: 18px;
+    border:none;
+    border-radius: 6px;
+    background-color: #b3b3b3;
+    cursor: pointer;
+    transform: 0.4s;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background-color: #cccccc;
+}
