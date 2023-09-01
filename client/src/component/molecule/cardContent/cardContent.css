@@ -1,0 +1,19 @@
+.card-content{
+    width: 100%;
+    height: auto;
+    background-color: #22272B;
+    border: none;
+    border-radius: 9px;
+    padding: 4px 8px ;
+    margin: 5px 0px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.card-content:hover{
+    background-color: #22272bd3;
+}
+
+.card-content p{
+    color: #89959e;
+    font-size: 0.95rem;
+}
