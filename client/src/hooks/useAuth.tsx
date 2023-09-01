@@ -2,20 +2,20 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 
 const useAuth = () => {
-    const { 
+    const {
         setAccessToken,
         setIsLogedIn,
-        setUserName
+        setToggleLogin,
     } = useContext(AuthContext);
 
-    const login = (accessToken: string, userName: string)=>{
+    const login = (accessToken: string) => {
         setAccessToken(accessToken);
         localStorage.setItem("Token", accessToken);
-        setUserName(userName);
         setIsLogedIn(true);
+        setToggleLogin(false);
     }
 
-    const destroyAuth = ()=>{
+    const destroyAuth = () => {
 
     }
 

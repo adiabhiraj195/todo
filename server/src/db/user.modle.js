@@ -9,14 +9,13 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    data: [{
-        id: String,
-        title: String,
-        card: [{
-            cTitle: String,
+    cards: [{
+        cardId: String,
+        cTitle: String,
+        tasks: [{
             content: String,
             status: String,
-            cId: String,
+            taskId: String,
         }]
     }]
 });

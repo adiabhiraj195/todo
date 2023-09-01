@@ -6,7 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(0, 102, 255); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(133, 133, 133, 0.651);
 }
 
 .auth-container {
@@ -43,4 +46,6 @@
 .login-link-container{
     text-align: end;
     margin: 8px 20px;
+    color: aqua;
+    cursor: pointer;
 }

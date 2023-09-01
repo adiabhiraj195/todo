@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import InputField from '../../component/atom/inputField';
 import validator from 'validator';
 import './register.css';
 import UserService from '../../service/user-service';
+import { AuthContext } from '../../context/authContext';
 
 const RegisterPage = () => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password1, setPassword1] = useState<string>("");
     const [password2, setPassword2] = useState<string>("");
+    const { setToggleLogin, setToggleSignin } = useContext(AuthContext);
 
     const validateData = () => {
         let isValid = true;
@@ -24,11 +26,11 @@ const RegisterPage = () => {
         return isValid;
     }
 
-    const registerUser = async(e: any) => {
+    const registerUser = async (e: any) => {
         e.preventDefault();
-        // if (!validateData()) {
-        //     return;
-        // }
+        if (!validateData()) {
+            return;
+        }
         try {
             await UserService.register({
                 name,
@@ -36,7 +38,9 @@ const RegisterPage = () => {
                 password1,
                 password2
             });
-            console.log("done")
+            setToggleSignin(false);
+            setToggleLogin(true);
+            console.log("done");
             // navigate("/");
 
         } catch (error) {
@@ -55,6 +59,10 @@ const RegisterPage = () => {
     }
     const handleOnInputPassword2 = (value: string) => {
         setPassword2(value);
+    }
+    const toggleSignin = () => {
+        setToggleLogin(true);
+        setToggleSignin(false);
     }
     return (
         <div className='auth-page'>
@@ -94,9 +102,9 @@ const RegisterPage = () => {
                         label='Confirm Password'
                     />
                 </div>
-                {/* <div className='login-link-container'>
-                    <Link to={"/login"}>already have account!</Link>
-                </div> */}
+                <div className='login-link-container'>
+                    <p onClick={toggleSignin}>already have account!</p>
+                </div>
                 <div className="btn-container">
                     <button className='register-btn' onClick={registerUser}>Register</button>
                 </div>

@@ -1,10 +1,16 @@
 import API from "./api";
 
 const CardService = {
+    getAllData: (accessToken: string) => {
+        return API.get("/data", {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        })
+    },
+
     createCard: (accessToken: string, payload: {
         cTitle: string;
     }) => {
-        return API.post("/card/create", payload, {
+        return API.post("/data/create", payload, {
             headers: { Authorization: `Bearer ${accessToken}` }
         })
     },
@@ -13,7 +19,7 @@ const CardService = {
         task: string,
         id: string
     }) => {
-        return API.post("/card/task", payload, {
+        return API.post("/data/task", payload, {
             headers: { Authorization: `Bearer ${accessToken}` }
         })
     }

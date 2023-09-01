@@ -1,10 +1,17 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
+// interface TasksInterface {
+//     content: string;
+//     status: string;
+//     taskId: string;
+// }[];
 
 interface CardContextInterface {
     createCardPopup: boolean;
     setCreateCardPopup: Dispatch<SetStateAction<boolean>>;
     cardContentPopup: boolean;
     setCardContentPopup: Dispatch<SetStateAction<boolean>>;
+    // cards: Array<{ cardId: string; cTitle: string; tasks: TasksInterface }>;
+
 }
 
 const defaultValue = {
@@ -12,6 +19,7 @@ const defaultValue = {
     setCreateCardPopup: () => { },
     cardContentPopup: false,
     setCardContentPopup: () => { },
+    // cards: []
 }
 
 export const CardContext = createContext<CardContextInterface>(defaultValue);
@@ -22,7 +30,8 @@ interface CardProviderInterface {
 
 export const CardProvider = ({ children }: CardProviderInterface) => {
     const [createCardPopup, setCreateCardPopup] = useState<boolean>(defaultValue.createCardPopup);
-    const [cardContentPopup, setCardContentPopup] = useState<boolean>(defaultValue.cardContentPopup)
+    const [cardContentPopup, setCardContentPopup] = useState<boolean>(defaultValue.cardContentPopup);
+    // const [cards, setCards] = useState<Array<Object>>(defaultValue.cards)
 
     return (
         <CardContext.Provider
@@ -30,7 +39,7 @@ export const CardProvider = ({ children }: CardProviderInterface) => {
                 createCardPopup,
                 setCreateCardPopup,
                 cardContentPopup,
-                setCardContentPopup
+                setCardContentPopup,
             }}
         >
             {children}

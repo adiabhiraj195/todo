@@ -14,9 +14,9 @@ function App() {
         <AuthProvider>
           <CardProvider>
             <Routes>
-              <Route path='/register' Component={RegisterPage} />
-              <Route path='/' Component={Login} />
-              <Route path='/main' Component={MainPage} />
+              {/* <Route path='/register' Component={RegisterPage} />
+              <Route path='/' Component={Login} /> */}
+              <Route path='/' Component={MainPage} />
             </Routes>
           </CardProvider>
         </AuthProvider>

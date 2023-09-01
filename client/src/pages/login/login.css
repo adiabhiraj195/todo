@@ -1,6 +1,8 @@
 .register-link-container{
     text-align: end;
     margin: 8px 20px;
+    color: aqua;
+    cursor: pointer;
 }
 .login-btn {
     padding: 6px 12px;
