@@ -16,7 +16,7 @@ const authenticate = (req, res, next) => {
         (err, decoded) => {
             console.log(err)
             if (err) return res.sendStatus(403);
-            console.log("after error appear", decoded);
+            // console.log("after error appear", decoded);
             // console.log(req.user);
             try {
                 const { email } = decoded.user;

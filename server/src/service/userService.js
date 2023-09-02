@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { compare, hash, genSalt } from "bcrypt";
 import User from "../db/user.modle.js";
+import mongoose from "mongoose";
 
 class UserService {
     createUser = async (name, email, password) => {
@@ -26,12 +27,17 @@ class UserService {
     }
 
     loginResponse = async (user) => {
-        const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
+        const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET);
 
         user.isLogedin = true;
         user.save();
 
         return { accessToken };
+    }
+
+    findDataById = async (cardId) => {
+        const ObjectId = mongoose.Types.ObjectId;
+        return await User.find({ _id: new ObjectId(cardId) });
     }
 }
 

@@ -17,7 +17,8 @@ const CardService = {
 
     addTask: (accessToken: string, payload: {
         task: string,
-        id: string
+        cardId: string,
+        status: "red" | "orange" | "green"
     }) => {
         return API.post("/data/task", payload, {
             headers: { Authorization: `Bearer ${accessToken}` }

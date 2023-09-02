@@ -1,16 +1,13 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
-// interface TasksInterface {
-//     content: string;
-//     status: string;
-//     taskId: string;
-// }[];
+import { CardInterface } from '../interface/card.interface';
 
 interface CardContextInterface {
     createCardPopup: boolean;
     setCreateCardPopup: Dispatch<SetStateAction<boolean>>;
     cardContentPopup: boolean;
     setCardContentPopup: Dispatch<SetStateAction<boolean>>;
-    // cards: Array<{ cardId: string; cTitle: string; tasks: TasksInterface }>;
+    cards: Array<CardInterface>;
+    setCards: Dispatch<SetStateAction<CardInterface[]>>;
 
 }
 
@@ -19,7 +16,8 @@ const defaultValue = {
     setCreateCardPopup: () => { },
     cardContentPopup: false,
     setCardContentPopup: () => { },
-    // cards: []
+    cards: [],
+    setCards: ()=>{}
 }
 
 export const CardContext = createContext<CardContextInterface>(defaultValue);
@@ -31,7 +29,7 @@ interface CardProviderInterface {
 export const CardProvider = ({ children }: CardProviderInterface) => {
     const [createCardPopup, setCreateCardPopup] = useState<boolean>(defaultValue.createCardPopup);
     const [cardContentPopup, setCardContentPopup] = useState<boolean>(defaultValue.cardContentPopup);
-    // const [cards, setCards] = useState<Array<Object>>(defaultValue.cards)
+    const [cards, setCards] = useState<Array<CardInterface>>(defaultValue.cards)
 
     return (
         <CardContext.Provider
@@ -40,6 +38,8 @@ export const CardProvider = ({ children }: CardProviderInterface) => {
                 setCreateCardPopup,
                 cardContentPopup,
                 setCardContentPopup,
+                cards,
+                setCards
             }}
         >
             {children}

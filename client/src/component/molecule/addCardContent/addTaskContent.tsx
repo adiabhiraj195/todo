@@ -1,17 +1,40 @@
-import React, { useContext, useState } from 'react'
-import './addCardContent.css';
-import { CardContext } from '../../../context/cardContext';
+import React, { useState } from 'react'
+import './addTaskContent.css';
 import { AiOutlinePlus } from 'react-icons/ai';
 import InputField from '../../atom/inputField';
 import CardService from '../../../service/card-service';
+import useData from '../../../hooks/useData';
 
-const AddCardContent = () => {
-    const { cardContentPopup, setCardContentPopup } = useContext(CardContext);
+interface TaskContentInterface {
+    cardId: string
+}
+
+const AddTaskContent = ({
+    cardId
+}: TaskContentInterface) => {
+    const [cardContentPopup, setCardContentPopup ] = useState(false);
     const [task, setTask] = useState("");
+    const { getUserData } = useData();
+    const status = "red";
     
-    const handleAddTask = ()=>{
-        setCardContentPopup(false)
+    const accessToken = localStorage.getItem("Token");
 
+    const handleAddTask = async () => {
+        if (accessToken == null) {
+            console.log("null accessToken");
+            return;
+        }
+        if(task === "") return;
+        try {
+            await CardService.addTask(accessToken, { task, cardId, status });
+            getUserData();
+            setCardContentPopup(false);
+            setTask("");
+
+        } catch (error) {
+            setTask("Something is not working properly" )
+            console.log(error);
+        }
         //add task to database with id
     }
 
@@ -45,4 +68,4 @@ const AddCardContent = () => {
     )
 }
 
-export default AddCardContent;
+export default AddTaskContent;

@@ -10,7 +10,7 @@ import RegisterPage from '../register/register.page';
 import useData from '../../hooks/useData';
 
 const MainPage = () => {
-  const { createCardPopup } = useContext(CardContext);
+  const { createCardPopup, cards } = useContext(CardContext);
   const { toggleLogin, toggleSignin } = useContext(AuthContext);
   const { getUserData } = useData();
   // console.log(createCardPopup)
@@ -23,7 +23,15 @@ const MainPage = () => {
         <NavigationBar />
       </div>
       <div className='todo-card-wrap'>
-        <TodoCard cardTitle='CardTitle' />
+        {
+          cards?.map((card) => {
+            return (
+              <div className='todo-card-key-container' key={card._id}>
+                <TodoCard cardTitle={card.cTitle} tasks={card.tasks} cardId={card._id} />
+              </div>
+            )
+          })
+        }
         <AddCard />
       </div>
       {/* {createCardPopup && <AddCardPopup />} */}

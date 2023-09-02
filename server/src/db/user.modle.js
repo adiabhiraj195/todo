@@ -15,7 +15,6 @@ const userSchema = mongoose.Schema({
         tasks: [{
             content: String,
             status: String,
-            taskId: String,
         }]
     }]
 });
