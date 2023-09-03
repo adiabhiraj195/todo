@@ -5,13 +5,14 @@ import { CardContext } from '../../../context/cardContext';
 import InputField from '../../atom/inputField';
 import { RxCross1 } from 'react-icons/rx';
 import CardService from '../../../service/card-service';
-import { AuthContext } from '../../../context/authContext';
+import useData from '../../../hooks/useData';
 
 const AddCard = () => {
     const { createCardPopup, setCreateCardPopup } = useContext(CardContext);
     const [cTitle, setCTitle] = useState("");
     const accessToken = localStorage.getItem("Token");
-    // const { accessToken } = useContext(AuthContext);
+    const {getUserData} = useData();
+
     const validateInput = ()=>{
         let isValid = true;
         if(cTitle.length === 0){
@@ -25,7 +26,9 @@ const AddCard = () => {
         if(accessToken == null) return;
         try {
             await CardService.createCard(accessToken, {cTitle});
+            getUserData();
             setCreateCardPopup(false);
+
             //todo - call all cards to re render
         } catch (error) {
             console.log(error)

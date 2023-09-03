@@ -15,6 +15,13 @@ const UserService =  {
         password: String
     })=>{
         return API.post("/user/login", payload);
+    },
+
+    logout: (accessToken: string)=>{
+        return API.delete("/user/logout", {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        });
+
     }
 }
 

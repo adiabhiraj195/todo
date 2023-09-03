@@ -24,7 +24,7 @@ const TodoCard = ({
                     tasks?.map((task) => {
                         return (
                             <div className='task-key-container' key={task._id}>
-                                <TaskCard content={task.content} status={task.status}/>
+                                <TaskCard content={task.content} status={task.status}  cardId={cardId} taskId={task._id}/>
                             </div>
                         )
                     })

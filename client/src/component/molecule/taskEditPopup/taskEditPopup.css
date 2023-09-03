@@ -1,0 +1,35 @@
+.edited-task-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+}
+
+.task-status-btn-wrap button{
+    margin: 8px;
+    border: none;
+    padding: 4px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(220, 229, 238);
+    cursor: pointer;
+}
+.task-action-btn-wrap button{
+    margin: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* border: 2px solid #525e68; */
+    border-radius: 6px;
+    padding: 4px 6px;
+    color: aliceblue;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.task-action-btn-wrap button:hover{
+    /* border-color: #525e68; */
+    border: none;
+}

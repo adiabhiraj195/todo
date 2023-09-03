@@ -35,6 +35,22 @@ class UserController {
 
         return res.status(200).json(response);
     }
+
+    logout = async(req, res)=>{
+        const err = validationResult(req);
+        if (!err.isEmpty()) return res.status(400).json(err);
+
+        const { email } = req.user;
+
+        const user = await userService.findUserByEmail(email);
+
+        user.isLogedin = false;
+        user.save();
+
+        return res.status(200).json({
+            status: "ok"
+        });
+    }
 }
 
 const userController = new UserController();

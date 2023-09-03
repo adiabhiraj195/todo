@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
+import { CardContext } from '../context/cardContext';
 
 const useAuth = () => {
     const {
@@ -7,6 +8,8 @@ const useAuth = () => {
         setIsLogedIn,
         setToggleLogin,
     } = useContext(AuthContext);
+
+    const {setCards}= useContext(CardContext);
 
     const login = (accessToken: string) => {
         setAccessToken(accessToken);
@@ -16,12 +19,16 @@ const useAuth = () => {
     }
 
     const destroyAuth = () => {
-
+        setCards([]);
+        setAccessToken(null);
+        localStorage.clear();
+        setIsLogedIn(false);
+        setToggleLogin(true);
     }
 
     return {
         login,
-        destroyAuth
+        destroyAuth,
     }
 }
 

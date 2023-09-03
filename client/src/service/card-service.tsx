@@ -16,12 +16,34 @@ const CardService = {
     },
 
     addTask: (accessToken: string, payload: {
-        task: string,
-        cardId: string,
-        status: "red" | "orange" | "green"
+        task: string;
+        cardId: string;
+        status: "red" | "orange" | "green";
     }) => {
         return API.post("/data/task", payload, {
             headers: { Authorization: `Bearer ${accessToken}` }
+        })
+    },
+
+    updateTask: (accessToken: string, payload: {
+        editedTask: string;
+        newStatus: string;
+        cardId : string;
+        taskId : string;
+    }) =>{  
+        return API.post("/data/update", payload, {
+            headers: { Authorization: `Bearer ${accessToken}` }
+
+        })
+    },
+
+    deleteTask: (accessToken: string, payload: {
+        cardId : string;
+        taskId : string;
+    }) =>{  
+        return API.post("/data/delete", payload, {
+            headers: { Authorization: `Bearer ${accessToken}` }
+
         })
     }
 }

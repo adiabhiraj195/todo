@@ -8,8 +8,8 @@ const authenticate = (req, res, next) => {
     // console.log(token);
     // token = token.slice(1,-1);      
 
-    if (!token) return res.sendStatus(401);
     // console.log(token);
+    if (!token) return res.sendStatus(401);
     jwt.verify(
         token,
         process.env.ACCESS_TOKEN_SECRET,
