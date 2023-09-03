@@ -36,9 +36,9 @@ const Login = () => {
         try {
             const result = await UserService.login({ email, password });
             // localStorage.setItem("Token", result.data.accessToken);
+            getUserData();
             login(result.data.accessToken);
             console.log(result, result.data.accessToken);
-            getUserData();
             // navigate("/profile");
         } catch (error) {
             console.log(error);
