@@ -27,7 +27,7 @@ const AddTaskContent = ({
         if(task === "") return;
         try {
             await CardService.addTask(accessToken, { task, cardId, status });
-            getUserData();
+            getUserData( accessToken );
             setCardContentPopup(false);
             setTask("");
 

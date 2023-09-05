@@ -10,7 +10,7 @@
     height: 89%;
     overflow-x: scroll;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     
 }

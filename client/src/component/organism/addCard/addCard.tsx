@@ -26,7 +26,7 @@ const AddCard = () => {
         if(accessToken == null) return;
         try {
             await CardService.createCard(accessToken, {cTitle});
-            getUserData();
+            getUserData(accessToken);
             setCreateCardPopup(false);
 
             //todo - call all cards to re render

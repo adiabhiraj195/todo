@@ -10,12 +10,14 @@ import RegisterPage from '../register/register.page';
 import useData from '../../hooks/useData';
 
 const MainPage = () => {
-  const { createCardPopup, cards } = useContext(CardContext);
+  const { cards } = useContext(CardContext);
   const { toggleLogin, toggleSignin } = useContext(AuthContext);
   const { getUserData } = useData();
+  const accessToken = localStorage.getItem('Token');
   // console.log(createCardPopup)
   useEffect(() => {
-    getUserData();
+    if(accessToken == null) return;
+    getUserData( accessToken);
   }, []);
   return (
     <div className='main-page-container'>

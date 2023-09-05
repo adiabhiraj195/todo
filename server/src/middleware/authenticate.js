@@ -14,13 +14,13 @@ const authenticate = (req, res, next) => {
         token,
         process.env.ACCESS_TOKEN_SECRET,
         (err, decoded) => {
-            console.log(err)
+            // console.log(err)
             if (err) return res.sendStatus(403);
             // console.log("after error appear", decoded);
             // console.log(req.user);
             try {
                 const { email } = decoded.user;
-                console.log(email);
+                // console.log(email);
                 req.user = { email };
                 next();
             } catch (error) {

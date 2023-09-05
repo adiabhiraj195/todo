@@ -6,9 +6,9 @@ import { CardContext } from "../context/cardContext";
 const useData = () => {
     const { setUserName, setIsLogedIn } = useContext(AuthContext);
     const {cards,  setCards } = useContext(CardContext);
-    const accessToken = localStorage.getItem('Token');
+    // const accessToken = localStorage.getItem('Token');
 
-    const getUserData = async () => {
+    const getUserData = async (accessToken: string) => {
         if (accessToken == null) {
             setIsLogedIn(false);
             return;

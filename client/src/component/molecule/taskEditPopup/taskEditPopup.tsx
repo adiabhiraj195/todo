@@ -32,7 +32,7 @@ const TaskEditPopup = ({
                 cardId,
                 taskId
             });
-            getUserData();
+            getUserData( accessToken);
 
         } catch (error) {
             console.log(error);
@@ -47,7 +47,7 @@ const TaskEditPopup = ({
                 cardId,
                 taskId
             });
-            getUserData();
+            getUserData( accessToken);
 
         } catch (error) {
             console.log(error);

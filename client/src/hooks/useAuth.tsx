@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 import { CardContext } from '../context/cardContext';
+import useData from './useData';
 
 const useAuth = () => {
     const {
@@ -9,13 +10,15 @@ const useAuth = () => {
         setToggleLogin,
     } = useContext(AuthContext);
 
-    const {setCards}= useContext(CardContext);
+    const { setCards } = useContext(CardContext);
+    const { getUserData } = useData()
 
-    const login = (accessToken: string) => {
+    const login = async (accessToken: string) => {
         setAccessToken(accessToken);
         localStorage.setItem("Token", accessToken);
         setIsLogedIn(true);
         setToggleLogin(false);
+        await getUserData(accessToken);
     }
 
     const destroyAuth = () => {
