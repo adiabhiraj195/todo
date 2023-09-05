@@ -8,7 +8,7 @@ import router from "./routers/index.router.js";
 
 const app = express();
 const FRONT_END_URL = process.env.FRONT_END_URL;
-console.log(FRONT_END_URL);
+// console.log(FRONT_END_URL);
 
 app.use(morgan("combined"));
 app.use(express.json());
