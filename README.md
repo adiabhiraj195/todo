@@ -5,9 +5,9 @@ This is a MERN application with is written in typescript, this web application s
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/11m6s7yJhhg5z8fhWAZ4_Dsk6QP7oFApU/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1XqDhQ5A2FaOTPbNxUBvlntPxHsp_zya4/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1fLoWBJrWpw8WdijEJYA5L_p5XUBOpQ7Q/view?usp=drive_link)
+![Screenshot (110)](https://github.com/adiabhiraj195/todo/assets/83534508/308dc347-9780-44d4-85eb-8da94115d14f)
+![Screenshot (112)](https://github.com/adiabhiraj195/todo/assets/83534508/69aa4a78-41c5-458d-ad99-04a56f7a58fe)
+![Screenshot (113)](https://github.com/adiabhiraj195/todo/assets/83534508/a8b3f540-4efb-48b8-8fa2-982a2d308bee)
 
 
 ## 🔗 Links
